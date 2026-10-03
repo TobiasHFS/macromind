@@ -1,28 +1,22 @@
 # MacroMind
 
-A React prototype for a market dashboard and a portfolio simulation lab. It displays index data, a yield curve, financial headlines and simulations using SPY, TLT and GLD.
+A React market dashboard with index prices, Treasury yields, financial headlines and portfolio simulations for SPY, TLT and GLD.
 
-## Run
+## Run locally
 
-Use Node.js 22.12 or newer and npm.
+Requires Node.js 22.12 or newer.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-`npm run build` creates the front-end bundle. `npm run lint` checks the source.
+Use `npm run build` to build the app and `npm run lint` to check the source.
 
-## Current limits
+Market data comes from Yahoo Finance through the Vite development proxy. A static deployment needs its own proxy. Headlines use an RSS conversion service.
 
-Market requests go through a local Vite proxy to Yahoo Finance. The proxy exists only in the development server; deploying the static bundle alone does not provide it. Headlines use a public RSS conversion service. These external endpoints can fail, rate-limit requests or change their responses.
+The portfolio lab uses monthly historical returns, a zero risk-free rate and random sampling of portfolio weights. Missing prices are filtered separately by asset, so return dates can become misaligned. Treat the simulations as an experiment.
 
-The portfolio calculations are exploratory. They use historical monthly returns, a zero risk-free rate and random search over portfolio weights. Missing observations are filtered separately by asset, which can misalign return dates. Simulations do not establish future returns or suitable investments. The app still contains prototype interface text and placeholder elements.
+Data requests are in `src/hooks/useMarketData.js`; calculations are in `src/utils/portfolioMath.js`.
 
-## Code
-
-- `src/components/`: dashboard and portfolio interface
-- `src/hooks/useMarketData.js`: external data requests
-- `src/utils/portfolioMath.js`: calculations and simulations
-
-MIT applies to original code. External data and news remain subject to their providers' terms.
+[MIT license](LICENSE).
