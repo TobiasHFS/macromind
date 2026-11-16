@@ -1,6 +1,6 @@
 # MacroMind
 
-A React market dashboard with index prices, Treasury yields, financial headlines and portfolio simulations for SPY, TLT and GLD.
+A React market dashboard prototype with index prices, Treasury yields, financial headlines and portfolio simulations for SPY, TLT and GLD.
 
 ## Run locally
 
@@ -20,3 +20,7 @@ The portfolio lab uses monthly historical returns, a zero risk-free rate and ran
 Data requests are in `src/hooks/useMarketData.js`; calculations are in `src/utils/portfolioMath.js`.
 
 [MIT license](LICENSE).
+
+## AI assistance
+
+This project was developed with heavy AI assistance. Codex and Google Antigravity are the main coding tools I use across these projects.
